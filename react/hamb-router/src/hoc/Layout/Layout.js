@@ -24,11 +24,11 @@ class Layout extends Component {
     render () {
         return (
             <Aux>
-                <Toolbar 
-                    isAuth = {this.props.isAuthenticated}
+                <Toolbar
+                    isAuth={this.props.isAuthenticated}
                     drawerToggleClicked={this.sideDrawerToggleHandler} />
                 <SideDrawer
-                    isAuth = {this.props.isAuthenticated}
+                    isAuth={this.props.isAuthenticated}
                     open={this.state.showSideDrawer}
                     closed={this.sideDrawerClosedHandler} />
                 <main className={classes.Content}>
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Layout);
+export default connect( mapStateToProps )( Layout );

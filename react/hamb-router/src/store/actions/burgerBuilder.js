@@ -1,5 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
+import * as localEnv from '../../.env.js';
+
 
 export const addIngredient = ( name ) => {
     return {
@@ -30,7 +32,9 @@ export const fetchIngredientsFailed = () => {
 
 export const initIngredients = () => {
     return dispatch => {
-        axios.get( 'https://hamburgers-5924f.firebaseio.com/ingredients.json' )
+        const url = localEnv.firebaseDB + '/ingredients.json';
+        //'https://hamburgers-5924f.firebaseio.com/ingredients.json'
+        axios.get( url )
             .then( response => {
                dispatch(setIngredients(response.data));
             } )
